@@ -1,3 +1,4 @@
+import org.springframework.aop.aspectj.annotation.PrototypeAspectInstanceFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
@@ -10,5 +11,10 @@ public class AppConfig {
         HelloWorld helloWorld = new HelloWorld();
         helloWorld.setMessage("Hello World!");
         return helloWorld;
+    }
+    @Bean ("cat")
+    @Scope("prototype")
+    public Cat getCat() {
+        return new Cat();
     }
 }
